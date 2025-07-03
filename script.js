@@ -1,4 +1,41 @@
-let products = []
+let users = [], products = []tasks = [];
+
+function addUser() {
+  const name = document.getElementById("userName").value.trim()
+  const email = document.getElementById("userEmail").value.trim()
+  if (name && email) {
+    users.push({ name, email })
+    renderUsers();
+    document.getElementById("userName").value = ""
+    document.getElementById("userEmail").value = ""
+  }
+}
+
+
+function addTask() {
+  const description = document.getElementById("taskDescription").value.trim();
+  const status = document.getElementById("taskStatus").value;
+  if (description) {
+    tasks.push({ description, status });
+    renderTasks();
+    document.getElementById("taskDescription").value = "";
+  }
+}
+
+function renderTasks() {
+  const tbody = document.getElementById("tasksTable");
+  tbody.innerHTML = "";
+  tasks.forEach((t, i) => {
+    tbody.innerHTML += `<tr>
+      <td>${t.description}</td>
+      <td>${t.status}</td>
+      <td>
+        <button onclick="editTask(${i})">Editar</button>
+        <button onclick="deleteTask(${i})">Excluir</button>
+      </td>
+    </tr>`;
+  });
+}
 
 function addProduct() {
   const name = document.getElementById("productName").value.trim();
@@ -11,8 +48,25 @@ function addProduct() {
   }
 }
 
+function editTask(index) {
+  const task = tasks[index];
+  const newDesc = prompt("Nova descrição:", task.description);
+  const newStatus = prompt("Novo status (Pendente ou Concluída):", task.status);
+  if (newDesc && newStatus) {
+    tasks[index] = { description: newDesc, status: newStatus };
+    renderTasks();
+  }
+}
+
+function deleteTask(index) {
+  if (confirm("Tem certeza?")) {
+    tasks.splice(index, 1);
+    renderTasks();
+  }
+}
+
 function renderProducts() {
-  const tbody = document.getElementById("productsTable")
+  const tbody = document.getElementById("productsTable");
   tbody.innerHTML = "";
   products.forEach((p, i) => {
     tbody.innerHTML += `<tr>
@@ -42,4 +96,3 @@ function deleteProduct(index) {
     renderProducts();
   }
 }
-

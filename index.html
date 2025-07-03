@@ -43,6 +43,21 @@
 
   <section>
 
+    <section>
+    <h2>Tarefas</h2>
+    <input type="text" id="taskDescription" placeholder="Descrição">
+    <select id="taskStatus">
+      <option value="Pendente">Pendente</option>
+      <option value="Concluída">Concluída</option>
+    </select>
+    <button onclick="addTask()">Adicionar Tarefa</button>
+
+    <table>
+      <thead><tr><th>Descrição</th><th>Status</th><th>Ações</th></tr></thead>
+      <tbody id="tasksTable"></tbody>
+    </table>
+  </section>
+
   <script src="script.js"></script>
 </body>
 </html>
