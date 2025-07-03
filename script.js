@@ -12,7 +12,7 @@ function addProduct() {
 }
 
 function renderProducts() {
-  const tbody = document.getElementById("productsTable");
+  const tbody = document.getElementById("productsTable")
   tbody.innerHTML = "";
   products.forEach((p, i) => {
     tbody.innerHTML += `<tr>
