@@ -7,6 +7,6 @@ function addUser() {
     users.push({ name, email });
     renderUsers();
     document.getElementById("userName").value = "";
-    document.getElementById("userEmail").value = ""
+    document.getElementById("userEmail").value = "";
   }
 }
