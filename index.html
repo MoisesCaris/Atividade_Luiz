@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projeto CRUD Simples</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    section { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 30px; }
+    h2 { margin-top: 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    table, th, td { border: 1px solid #aaa; }
+    th, td { padding: 8px; text-align: left; }
+    input, button { margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>Projeto com 3 CRUDs Simples</h1>
+
+  <section>
+    <h2>Usuários</h2>
+    <input type="text" id="userName" placeholder="Nome">
+    <input type="email" id="userEmail" placeholder="Email">
+    <button onclick="addUser()">Adicionar Usuário</button>
+
+    <table>
+      <thead><tr><th>Nome</th><th>Email</th><th>Ações</th></tr></thead>
+      <tbody id="usersTable"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Produtos</h2>
+    <input type="text" id="productName" placeholder="Nome do Produto">
+    <input type="number" id="productPrice" placeholder="Preço">
+    <button onclick="addProduct()">Adicionar Produto</button>
+
+    <table>
+      <thead><tr><th>Nome</th><th>Preço</th><th>Ações</th></tr></thead>
+      <tbody id="productsTable"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Tarefas</h2>
+    <input type="text" id="taskDescription" placeholder="Descrição">
+    <select id="taskStatus">
+      <option value="Pendente">Pendente</option>
+      <option value="Concluída">Concluída</option>
+    </select>
+    <button onclick="addTask()">Adicionar Tarefa</button>
+
+    <table>
+      <thead><tr><th>Descrição</th><th>Status</th><th>Ações</th></tr></thead>
+      <tbody id="tasksTable"></tbody>
+    </table>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
